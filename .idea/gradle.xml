@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/annotations" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/chaicup" />
+            <option value="$PROJECT_DIR$/compiler" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

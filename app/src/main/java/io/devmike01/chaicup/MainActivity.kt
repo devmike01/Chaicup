@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.annotations.ChaiRoute
 import io.devmike01.chaicup.ui.theme.ChaiCupTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,15 +27,19 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
 }
 
 @Composable
+@ChaiRoute
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier
     )
 }
+
+
 
 @Composable
 fun GreetingPreview() {
