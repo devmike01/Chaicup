@@ -45,13 +45,6 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-
-    kotlin.sourceSets.main {
-        kotlin.srcDirs(
-                file("$buildDir/generated/ksp/debug/kotlin/io/devmike01"),
-                file("$buildDir/generated/ksp/release/kotlin/io/devmike01"),
-        )
-    }
 }
 
 dependencies {

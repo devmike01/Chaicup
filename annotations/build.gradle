@@ -13,7 +13,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName "2.0"
-        consumerProguardFiles 'consumer-proguard-rules.pro'
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
