@@ -9,6 +9,7 @@ pluginManagement {
         maven(uri("https://jitpack.io"))
         gradlePluginPortal()
     }
+
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -17,6 +18,7 @@ dependencyResolutionManagement {
         mavenCentral()
         maven(uri("https://jitpack.io"))
     }
+
 }
 //rootProject.name = "chaicup"
 include(":app")
