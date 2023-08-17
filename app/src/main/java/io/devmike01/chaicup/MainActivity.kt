@@ -26,20 +26,20 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-            ChaiCupTheme {
-                // A surface container using the 'background' color from the theme
-                val navController = rememberNavController()
-                NavHost(navController = navController,
-                    startDestination = ChaiCupRoutes.GREETING_ROUTE){
-                    composable(ChaiCupRoutes.GREETING02_ROUTE){
-                        Greeting02(name = "Hello : ${ChaiCupRoutes.GREETING02_ROUTE}")
-                    }
-                    composable(ChaiCupRoutes.GREETING_ROUTE){
-                        Greeting(navController,
-                            name = "Route: ${ChaiCupRoutes.GREETING_ROUTE}")
-                    }
-                }
-            }
+//            ChaiCupTheme {
+//                // A surface container using the 'background' color from the theme
+//                val navController = rememberNavController()
+//                NavHost(navController = navController,
+//                    startDestination = ChaiCupRoutes.GREETING_ROUTE){
+//                    composable(ChaiCupRoutes.GREETING02_ROUTE){
+//                        Greeting02(name = "Hello : ${ChaiCupRoutes.GREETING02_ROUTE}")
+//                    }
+//                    composable(ChaiCupRoutes.GREETING_ROUTE){
+//                        Greeting(navController,
+//                            name = "Route: ${ChaiCupRoutes.GREETING_ROUTE}")
+//                    }
+//                }
+//            }
         }
     }
 
@@ -50,7 +50,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(navController: NavController, name: String) {
     Column {
         Button(onClick = {
-            navController.navigate(ChaiCupRoutes.GREETING02_ROUTE)
+            //navController.navigate(ChaiCupRoutes.GREETING02_ROUTE)
         }) {
             Text(text = "Navigate to Greeting 2")
         }

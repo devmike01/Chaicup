@@ -12,9 +12,9 @@ afterEvaluate {
     publishing{
         publications {
             create<MavenPublication>("maven"){
-                groupId = "io.devmike01.compiler"
-                artifactId = "chaicup"
-                version = "1.0.0"
+                groupId = "io.devmike01.chaicup"
+                artifactId = "compiler"
+                version = "1.1.0"
                 from(components["java"])
             }
 

@@ -48,7 +48,8 @@ android {
 
     kotlin.sourceSets.main {
         kotlin.srcDirs(
-                file("$buildDir/generated/ksp/main/kotlin"),
+                file("$buildDir/generated/ksp/debug/kotlin/io/devmike01"),
+//                file("$buildDir/generated/ksp/release/kotlin/io/devmike01"),
         )
     }
 }
@@ -63,8 +64,10 @@ dependencies {
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
-    api(project(":annotations"))
-    ksp(project(":compiler"))
+   // implementation("com.github.devmike01:Chaicup:annotations:1.0.0.beta.4")
+    implementation(project(":annotations"))
+    implementation(project(":compiler"))
+//    ksp("io.devmike01.compiler:chaicup:1.0.0.beta.4")
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
