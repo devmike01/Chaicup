@@ -1,15 +1,15 @@
 plugins {
     kotlin("jvm")
-    id("maven-publish")
+    `maven-publish`
 }
 afterEvaluate {
     publishing{
         publications {
-            create<MavenPublication>("mavenKotlin"){
-                from(components["kotlin"])
+            create<MavenPublication>("maven"){
                 groupId = "io.devmike01.compiler"
                 artifactId = "chaicup"
                 version = "1.1"
+                from(components["java"])
             }
 
         }
