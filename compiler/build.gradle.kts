@@ -31,9 +31,12 @@ sourceSets.main {
     kotlin.srcDirs(
         file("$buildDir/generated/ksp/debug/kotlin/io/devmike01"),
         file("$buildDir/generated/ksp/release/kotlin/io/devmike01"),
+        file("${buildDir.absolutePath}/tmp/kapt/main/kotlinGenerated/"),
     )
 
 }
+
+
 
 dependencies {
     implementation("com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8")
