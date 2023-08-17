@@ -66,7 +66,7 @@ dependencies {
     implementation 'androidx.compose.material3:material3'
    // implementation("com.github.devmike01:Chaicup:annotations:1.0.0.beta.4")
     implementation(project(":annotations"))
-    implementation(project(":compiler"))
+    ksp(project(":compiler"))
 //    ksp("io.devmike01.compiler:chaicup:1.0.0.beta.4")
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
