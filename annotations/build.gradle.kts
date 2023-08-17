@@ -6,13 +6,12 @@ plugins {
 afterEvaluate {
     publishing{
         publications {
-            create<MavenPublication>("mavenKotlin"){
+            create<MavenPublication>("maven"){
                 groupId = "io.devmike01.annotations"
                 artifactId = "chaicup"
                 version = "1.1"
                 from(components["java"])
             }
-
 
         }
 
