@@ -46,12 +46,12 @@ android {
         }
     }
 
-    kotlin.sourceSets.main {
-        kotlin.srcDirs(
-                file("$buildDir/generated/ksp/debug/kotlin/io/devmike01"),
-//                file("$buildDir/generated/ksp/release/kotlin/io/devmike01"),
-        )
-    }
+//    kotlin.sourceSets.main {
+//        kotlin.srcDirs(
+//                file("$buildDir/generated/ksp/debug/kotlin/"),
+////                file("$buildDir/generated/ksp/release/kotlin/io/devmike01"),
+//        )
+//    }
 }
 
 dependencies {
