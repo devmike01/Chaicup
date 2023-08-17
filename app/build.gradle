@@ -45,6 +45,13 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+    kotlin.sourceSets.main {
+        kotlin.srcDirs(
+                file("$buildDir/generated/ksp/debug/kotlin/io/devmike01"),
+                file("$buildDir/generated/ksp/release/kotlin/io/devmike01"),
+        )
+    }
 }
 
 dependencies {
@@ -66,4 +73,9 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    def nav_version = "2.5.3"
+
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+
 }
