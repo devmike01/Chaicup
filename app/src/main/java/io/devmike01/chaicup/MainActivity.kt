@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController,
                     startDestination = ChaiCupRoutes.GREETING_ROUTE){
                     composable(ChaiCupRoutes.GREETING02_ROUTE){
-                        Greeting02(name = "Hello : ${ChaiCupRoutes.GREETING_ROUTE}")
+                        Greeting02(name = "Hello : ${ChaiCupRoutes.GREETING02_ROUTE}")
                     }
                     composable(ChaiCupRoutes.GREETING_ROUTE){
                         Greeting(navController,

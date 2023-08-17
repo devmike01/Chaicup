@@ -14,7 +14,7 @@ afterEvaluate {
             create<MavenPublication>("maven"){
                 groupId = "io.devmike01.compiler"
                 artifactId = "chaicup"
-                version = "1.1"
+                version = "1.0.0"
                 from(components["java"])
             }
 
