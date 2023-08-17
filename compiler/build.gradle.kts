@@ -11,6 +11,7 @@ afterEvaluate {
                 artifactId = "chaicup"
                 version = "1.1"
             }
+
         }
     }
 }

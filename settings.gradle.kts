@@ -6,7 +6,6 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
-        maven(uri("https://jitpack.io"))
         gradlePluginPortal()
     }
 
@@ -16,11 +15,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven(uri("https://jitpack.io"))
     }
 
 }
-//rootProject.name = "chaicup"
 include(":app")
 include(":annotations")
 include(":compiler")

@@ -13,11 +13,6 @@ afterEvaluate {
                 version = "1.1"
             }
 
-//            repositories {
-//                maven{
-//                    url = uri(layout.buildDirectory.dir("repo"))
-//                }
-//            }
 
         }
 
