@@ -3,7 +3,7 @@
 
 ### How to use
 
-Chaicup is a lite weigh library that automagically generates routes based on your `composable` function name or a custom name.
+Chaicup is a lightweight kotlin library that "automagically" generates routes based on your `composable` function's name or custom name.
 
 ##### Step 1
 ```groovy
