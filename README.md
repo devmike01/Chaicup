@@ -1,4 +1,4 @@
-# Chaicu
+# Chaicup
 
 
 ### How to use
