@@ -14,13 +14,23 @@ allprojects {
 ```
 
 ##### Step 2
+Add this to your app level in `build.gradle`
+```groovy
+plugins {
+    ...
+    id("com.google.devtools.ksp")
+}
+```
+
+
+##### Step 3
 Add these dependencies to your project
 ```kotlin
 implementation("com.github.devmike01.Chaicup:annotations:1.3.0")
 ksp("com.github.devmike01.Chaicup:compiler:1.3.0")
 ```
 
-##### Step 3
+##### Step 4
 Add this to your app level gradle file
 ```kotlin
  kotlin.sourceSets.main {
