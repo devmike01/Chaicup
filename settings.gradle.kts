@@ -12,6 +12,6 @@ pluginManagement {
 
 }
 
-//include(":app")
+include(":app")
 include(":annotations")
 include(":compiler")
