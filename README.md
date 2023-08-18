@@ -3,6 +3,8 @@
 
 ### How to use
 
+Chaicup is a lite weigh library that automagically generates routes based on your `composable` function name or a custom name.
+
 ##### Step 1
 ```groovy
 allprojects {
@@ -46,6 +48,32 @@ The `BUILD_TYPE` is your app build type. In typical case, it should be `release`
 - Build your project and the routes would be automagically generated for you
 - All the routes are located inside `ChaiCupRoutes`
 - If you add `@ChaiRoute` to your function called `BuildScreen()`, it would generate a route named `BUILDSCREEN`.
+
+### Sample
+```kotlin
+@Composable
+@ChaiRoute
+fun Greeting(navController: NavController, name: String) {
+  ...
+}
+
+
+@Composable
+@ChaiRoute
+fun Greeting02(name: String) {
+    ...
+}
+
+```
+It generates the below code
+```kotlin
+object ChaiCupRoutes{
+    const val GREETING_ROUTE = "/io.devmike01.chaicup.Greeting"
+    const val GREETING02_ROUTE = "/io.devmike01.chaicup.Greeting02"
+}
+```
+
+To see the generated codes, look at this directory: `../generated/ksp/release/` or `../generated/ksp/debug/`
 
 ### Milestone
 - Add support for arguments in path
