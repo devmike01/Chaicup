@@ -7,7 +7,7 @@ plugins {
 
 android {
     compileSdk rootProject.ext.compileSdkVersion
-    namespace 'io.devmike01.annotations'
+    namespace 'io.devmike01.chaicup'
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
