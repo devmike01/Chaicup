@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'io.devmike01.chaicup'
+    namespace 'io.devmike01.chaicup.sample'
     compileSdk 33
 
     defaultConfig {
-        applicationId "io.devmike01.chaicup"
+        applicationId "io.devmike01.chaicup.sample"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -25,6 +25,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+
         }
     }
     compileOptions {
@@ -46,12 +50,17 @@ android {
         }
     }
 
+
     kotlin.sourceSets.main {
         kotlin.srcDirs(
-                file("$buildDir/generated/ksp/debug/kotlin/"),
+                file("${buildDir.absolutePath}/generated/ksp/debug"),
+                file("${buildDir.absolutePath}/generated/ksp/release/"),
         )
     }
 }
+
+
+
 
 dependencies {
 

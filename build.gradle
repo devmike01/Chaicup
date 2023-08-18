@@ -28,8 +28,12 @@ allprojects {
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
+
 }
 
+task taskY {
+    mustRunAfter "ksp"
+}
 
 ext {
     compileSdkVersion = 33

@@ -69,11 +69,6 @@ class FunctionProcessor(
 
             val functionName = nameArg.value as String
 
-            val properties : List<KSValueParameter> = function.parameters.filter {
-                it.validate()
-            }
-
-            logger.info("my_prop: $properties")
 
             function.simpleName.getQualifier()
 

@@ -8,6 +8,8 @@ kotlin {
     jvmToolchain(17)
 }
 
+
+
 afterEvaluate {
     publishing{
         publications {
@@ -18,6 +20,14 @@ afterEvaluate {
                 from(components["java"])
             }
 
+        }
+    }
+}
+
+sourceSets {
+    main{
+        java{
+            srcDir("${buildDir}/tmp/kotlin-classes/debug/")
         }
     }
 }

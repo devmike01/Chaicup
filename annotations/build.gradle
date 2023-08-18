@@ -36,8 +36,6 @@ android {
 }
 
 
-
-
 afterEvaluate {
     publishing{
         publications {
