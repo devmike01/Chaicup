@@ -65,7 +65,7 @@ fun Greeting02(name: String) {
 }
 
 ```
-It generates the below code
+It generates code snippet
 ```kotlin
 object ChaiCupRoutes{
     const val GREETING_ROUTE = "/io.devmike01.chaicup.Greeting"
