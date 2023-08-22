@@ -58,6 +58,18 @@ fun Greeting(navController: NavController, name: String) {
     }
 }
 
+@Composable
+@ChaiRoute
+fun NewGreeting(navController: NavController, name: String) {
+    Column {
+        Button(onClick = {
+            navController.navigate(ChaiCupRoutes.GREETING02_ROUTE)
+        }) {
+            Text(text = "Navigate to Greeting 2")
+        }
+        Greeting02(name = name)
+    }
+}
 
 @Composable
 @ChaiRoute

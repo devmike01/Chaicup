@@ -12,11 +12,11 @@ import com.google.devtools.ksp.symbol.KSPropertyDeclaration
 import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.symbol.KSTypeArgument
 import com.google.devtools.ksp.symbol.KSValueArgument
-import com.google.devtools.ksp.symbol.KSValueParameter
 import com.google.devtools.ksp.symbol.KSVisitorVoid
 import com.google.devtools.ksp.symbol.Nullability
 import com.google.devtools.ksp.validate
 import java.io.OutputStream
+import java.util.regex.Pattern
 
 class FunctionProcessor(
     private val codeGenerator: CodeGenerator,
@@ -74,7 +74,24 @@ class FunctionProcessor(
 
             val pckName = function.packageName.asString()
             val funcName = function.simpleName.asString()
-            file += "\n    const val ${(if(functionName.isBlank()) funcName else functionName).uppercase()}_ROUTE"
+
+            val upperCase = "(.*[A-Z].*)"
+
+            var function : String =""
+
+            (if(functionName.isBlank()) funcName else functionName)
+                .forEachIndexed { index, letter ->
+
+                val matchesUpper =
+                    Pattern.matches(upperCase, letter.toString())
+                if(matchesUpper && index > 0){
+                    function += "_$letter"
+                }else{
+                    function += letter.toString()
+                }
+            }
+
+            file += "\n    const val ${function.uppercase()}_ROUTE"
             file += " = \"/$pckName.$funcName\""
 
         }

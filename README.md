@@ -76,8 +76,8 @@ object ChaiCupRoutes{
 To see the generated codes, look at this directory: `../generated/ksp/release/` or `../generated/ksp/debug/`
 
 ### Milestone
-- Add support for arguments in path
-- Use underscores to string together routes
+- [ ] Add support for arguments in path
+- [x] Use underscores to string together routes
 
 License
 -------
