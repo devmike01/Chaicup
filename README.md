@@ -78,6 +78,7 @@ To see the generated codes, look at this directory: `../generated/ksp/release/` 
 ### Milestone
 - [ ] Add support for arguments in path
 - [x] Use underscores to string together routes
+- [x] Generate new routes from compose function
 
 License
 -------
