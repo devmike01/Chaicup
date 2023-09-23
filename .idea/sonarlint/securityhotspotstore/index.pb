@@ -15,3 +15,19 @@ G
 annotations/jitpack.yml,9/2/925e826b25e0bbf2606e8fe4a4dfbf15a0350418
 X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+;
+gradlew.bat,2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3
+A
+gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
+C
+settings.gradle.kts,7/4/749edfcc96398253e5b3416184e95c46621da850
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+y
+Icompiler/src/main/java/io/devmike01/compiler/FunctionProcessorProvider.kt,7/d/7d5969750d53293376bfeac3bdcb93d3d2c647b3
+I
+compiler/build.gradle.kts,b/5/b56bd78b5a345272fed4471264abe731d0a66fe1
+H
+annotations/build.gradle,4/3/4322e61b4a141ace326ecb3d63dd345c391501f9
+q
+Acompiler/src/main/java/io/devmike01/compiler/FunctionProcessor.kt,0/4/04bd2da0cf7e5bcef46ceb642b88af48648c3270

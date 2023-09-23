@@ -51,12 +51,12 @@ android {
     }
 
 
-//    kotlin.sourceSets.main {
-//        kotlin.srcDirs(
-//                file("${buildDir.absolutePath}/generated/ksp/debug"),
-//                file("${buildDir.absolutePath}/generated/ksp/release/"),
-//        )
-//    }
+    kotlin.sourceSets.main {
+        kotlin.srcDirs(
+                file("${buildDir.absolutePath}/generated/ksp/debug"),
+                file("${buildDir.absolutePath}/generated/ksp/release/"),
+        )
+    }
 }
 
 
@@ -83,7 +83,7 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
-
+    implementation 'com.github.devsideal:VectorChildFinder:1.0.0'
     def nav_version = "2.5.3"
 
     implementation "androidx.navigation:navigation-compose:$nav_version"
