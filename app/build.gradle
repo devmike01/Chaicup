@@ -51,11 +51,11 @@ android {
     }
 
 
-    kotlin.sourceSets.main {
-        kotlin.srcDirs(
-                file("${buildDir.absolutePath}/generated/ksp/debug"),
-        )
-    }
+//    kotlin.sourceSets.main {
+//        kotlin.srcDirs(
+//                file("${buildDir.absolutePath}/generated/ksp/debug"),
+//        )
+//    }
 }
 
 
