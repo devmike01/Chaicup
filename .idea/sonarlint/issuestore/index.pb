@@ -31,3 +31,20 @@ q
 Acompiler/src/main/java/io/devmike01/compiler/FunctionProcessor.kt,0/4/04bd2da0cf7e5bcef46ceb642b88af48648c3270
 I
 compiler/build.gradle.kts,b/5/b56bd78b5a345272fed4471264abe731d0a66fe1
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+F
+app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
+f
+6app/src/main/java/io/devmike01/chaicup/MainActivity.kt,f/f/ff1f321e75429437de975dde20d7dee0bc8e090f
+L
+.github/workflows/gradle.yml,c/3/c36c878e4a824e41b1b476ece36b9a80ca94ffec
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+c
+3app/src/main/java/io/devmike01/chaicup/TestVCode.kt,7/6/762cb4c92570e62980e201d0ff39869378827c78
