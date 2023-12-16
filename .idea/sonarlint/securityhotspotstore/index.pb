@@ -48,3 +48,7 @@ L
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 c
 3app/src/main/java/io/devmike01/chaicup/TestVCode.kt,7/6/762cb4c92570e62980e201d0ff39869378827c78
+u
+Ecompiler/src/main/java/io/devmike01/compiler/GenerateNavigateRoute.kt,a/8/a8dc9d7096d36cd76c3e0203c740cb0a6fa7488a
+x
+Hcompiler/src/main/java/io/devmike01/compiler/android/ChaiCupGenerator.kt,e/e/ee85dc9dad63508ebf2a4c1f4d6104fc2e579d6c

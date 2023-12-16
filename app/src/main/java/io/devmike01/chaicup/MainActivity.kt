@@ -53,10 +53,12 @@ import androidx.navigation.Navigator
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.devs.vectorchildfinder.VectorChildFinder
 import com.devs.vectorchildfinder.VectorDrawableCompat
 import io.devmike01.annotations.ChaiNavigation
 import io.devmike01.annotations.ChaiRoute
+import io.devmike01.chaicup.ChaiCupNavRoutes.navigateToGreeting02
 import io.devmike01.chaicup.ui.theme.ChaiCupTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -68,14 +70,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-
             ChaiCupTheme {
                 // A surface container using the 'background' color from the theme
                 val navController = rememberNavController()
                 NavHost(navController = navController,
                     startDestination = ChaiCupRoutes.GREETING_ROUTE){
-                    composable(ChaiCupRoutes.GREETING02_ROUTE){
-                        Greeting02(name = "Hello : ${ChaiCupRoutes.GREETING02_ROUTE}")
+                    composable(ChaiCupNavRoutes.FOOD_PAGE,
+                        arguments = listOf(navArgument("hello"){
+                            defaultValue ="None"
+                        })){
+                        Greeting02(name = "Hello : ${it.arguments?.getString("hello")}")
                     }
                     composable(ChaiCupRoutes.GREETING_ROUTE){
                         Greeting(navController,
@@ -83,7 +87,6 @@ class MainActivity : ComponentActivity() {
                     }
                 }
 
-//                navController.navigate()
             }
         }
     }
@@ -96,7 +99,8 @@ class MainActivity : ComponentActivity() {
 fun Greeting(navController: NavController, name: String) {
     Column {
         Button(onClick = {
-            navController.navigate(ChaiCupRoutes.GREETING02_ROUTE)
+            navController.navigateToGreeting02()
+
         }) {
 
             Text(text = "Navigate to Greeting 2")
@@ -106,12 +110,6 @@ fun Greeting(navController: NavController, name: String) {
     }
 
 }
-
-//fun NavController.gene(navOptions: NavOptions? = null,
-//                       navigatorExtras: Navigator.Extras? = null){
-//
-//    this.navigate(route, navOptions, navigatorExtras)
-//}
 
 @Composable
 fun VectorFinder(){
@@ -129,25 +127,16 @@ fun VectorFinder(){
 }
 
 
+@ChaiNavigation(routeName = "FoodPage?hello=hello")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-@ChaiRoute
 fun Greeting02(name: String) {
-
-    val collapsing = rememberCollapsibleHeaderScaffoldState(
-        initialHeaderHeightOffset = -200f,
-        initialHeaderHeightOffsetLimit = 1100f
-    )
-
-    val scrollState = rememberScrollState()
-
-
-    val listState = rememberLazyListState()
 
     val vScrollState = rememberScrollState(
         initial = 20,
     )
 
+    Log.d("Greeting02___", "$name")
     val coroutine = rememberCoroutineScope()
 
     Button(onClick = {
@@ -156,7 +145,7 @@ fun Greeting02(name: String) {
         }
     }) {
 
-        Text(text = "Scroll to top")
+        Text(text = "ARGUMENT: $name")
     }
     val sState = rememberScrollableState(consumeScrollDelta = {
         Log.d("NEW_ID", "$it")

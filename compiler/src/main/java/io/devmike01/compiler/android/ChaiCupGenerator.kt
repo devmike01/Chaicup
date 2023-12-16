@@ -5,11 +5,11 @@ import java.util.regex.Pattern
 object ChaiCupGenerator {
 
     fun navigator(funcName: String, route: String, onGenerate : (String) -> Unit){
-        onGenerate("fun NavController.navigateTo$funcName(route: String," +
+        onGenerate("    fun NavController.navigateTo$funcName(" +
                 "navOptions: NavOptions? = null,\n" +
                 "                       navigatorExtras: Navigator.Extras? = null){\n" +
-                "    this.navigate($route, navOptions, navigatorExtras)\n" +
-                "}")
+                "       this.navigate($route, navOptions, navigatorExtras)\n" +
+                "    }")
     }
 
     fun computeRouteName(functionName: String, simpleName: String): String{

@@ -69,15 +69,24 @@ class GenerateNavigateRoute(private val codeGenerator: CodeGenerator,
             argument.name?.asString() == "routeName"
         }
 
-        val functionNames = nameArg.value as String
+       // val functionNames = nameArg.value as String
 
         // Generate the route
-        val route = ChaiCupGenerator.computeRouteName(functionNames, simpleName)
-        navigatorFile += "\n\n"
-
-        ChaiCupGenerator.navigator(simpleName, route){code ->
+        val route = ChaiCupGenerator.computeRouteName(nameArg.value as String, simpleName)
+        navigatorFile += "\nobject ChaiCupNavRoutes{\n\n "
+        val sanitisedRoute = if (route.contains("?")){
+            route.split("?")[0]
+        }else{
+            route
+        }
+        // For chaicup routes
+        ChaiCupGenerator.navigator(simpleName, sanitisedRoute){code ->
+            navigatorFile += "   const val $sanitisedRoute  = \"/$pkgName.${nameArg.value}\"\n" +
+                    "\n"
             navigatorFile += code
         }
+
+        navigatorFile += "\n\n}"
 
     }
 
