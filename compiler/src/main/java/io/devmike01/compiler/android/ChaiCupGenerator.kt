@@ -29,26 +29,31 @@ object ChaiCupGenerator {
         onGenerate(ARGUMENT_ROUTE +PARSE_VARARG_ARG)
     }
 
-    fun navigator(funcName: String, route: String, onGenerate : (String) -> Unit){
-        val argumentCode = "${PUBLIC_FUNC}NavController.navigateTo$funcName(arguments: Map<String, String>," +
-                "navOptions: NavOptions? = null,\n" +
-                "                       navigatorExtras: Navigator.Extras? = null){\n" +
-                "       this.navigate(${"getRoute($route.split(\"?\")[0], arguments)"}, navOptions, navigatorExtras)\n" +
-                "    }\n"
-        val argumentVarargCode = "${PUBLIC_FUNC}NavController.navigateTo$funcName(navOptions: NavOptions? = null,\n" +
-                "                       navigatorExtras: Navigator.Extras? = null, " +
-                "arguments: Array<String>" +
-                "){\n" +
-                "       this.navigate(${"parseArguments($route, arguments)"}, navOptions, navigatorExtras)\n" +
-                "    }\n"
+    fun navigator(funcName: String, hasArg: Boolean,  route: String, onGenerate : (String) -> Unit){
+        var funcWithArgument =""
+        if (hasArg){
+            funcWithArgument = "${PUBLIC_FUNC}NavController.navigateTo$funcName(arguments: Map<String, String>," +
+                    "navOptions: NavOptions? = null,\n" +
+                    "                       navigatorExtras: Navigator.Extras? = null){\n" +
+                    "       this.navigate(${"getRoute($route.split(\"?\")[0], arguments)"}, navOptions, navigatorExtras)\n" +
+                    "    }\n"
+
+            funcWithArgument += "${PUBLIC_FUNC}NavController.navigateTo$funcName(navOptions: NavOptions? = null,\n" +
+                    "                       navigatorExtras: Navigator.Extras? = null, " +
+                    "arguments: Array<String>" +
+                    "){\n" +
+                    "       this.navigate(${"parseArguments($route, arguments)"}, navOptions, navigatorExtras)\n" +
+                    "    }\n"
+        }
+
+
         val noArgCode = "${PUBLIC_FUNC}NavController.navigateTo$funcName(" +
                 "navOptions: NavOptions? = null,\n" +
                 "                       navigatorExtras: Navigator.Extras? = null){\n" +
                 "       this.navigate($route, navOptions, navigatorExtras)\n" +
                 "    }\n"
 
-        onGenerate(argumentCode +
-                 noArgCode+ argumentVarargCode)
+        onGenerate(noArgCode+ funcWithArgument)
     }
 
     fun computeRouteName(functionName: String, simpleName: String): String{

@@ -88,7 +88,7 @@ class GenerateNavigateRoute(private val codeGenerator: CodeGenerator,
             route
         }
         // For chaicup routes
-        ChaiCupGenerator.navigator(simpleName, sanitisedRoute){code ->
+        ChaiCupGenerator.navigator(simpleName, route.contains("?"), sanitisedRoute){code ->
             navigatorFile += "   const val $sanitisedRoute  = \"/$pkgName.${nameArg.value}\"\n"
             navigatorFile += code
         }
