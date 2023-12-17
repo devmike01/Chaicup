@@ -37,4 +37,10 @@ object Imports {
             runImports("$IMPORT androidx.navigation.$it\n")
         }
     }
+
+    fun android(runImports: (String) -> Unit){
+        listOf<String>("Log").forEach {
+            runImports("$IMPORT android.util.$it\n")
+        }
+    }
 }

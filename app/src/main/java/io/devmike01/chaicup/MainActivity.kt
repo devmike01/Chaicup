@@ -59,6 +59,7 @@ import com.devs.vectorchildfinder.VectorDrawableCompat
 import io.devmike01.annotations.ChaiNavigation
 import io.devmike01.annotations.ChaiRoute
 import io.devmike01.chaicup.ChaiCupNavRoutes.navigateToGreeting02
+import io.devmike01.chaicup.ChaiCupNavRoutes.navigateToGreetingWithNoArgument
 import io.devmike01.chaicup.ui.theme.ChaiCupTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -76,14 +77,20 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController,
                     startDestination = ChaiCupRoutes.GREETING_ROUTE){
                     composable(ChaiCupNavRoutes.FOOD_PAGE,
-                        arguments = listOf(navArgument("hello"){
+                        arguments = listOf(navArgument("arg0"){
+                            defaultValue ="None"
+                        }, navArgument("myArg"){
                             defaultValue ="None"
                         })){
-                        Greeting02(name = "Hello : ${it.arguments?.getString("hello")}")
+                        Greeting02(navController, name = "Hello : ${it.arguments?.getString("arg0")} \n${it.arguments?.getString("myArg")}")
                     }
                     composable(ChaiCupRoutes.GREETING_ROUTE){
                         Greeting(navController,
                             name = "Route: ${ChaiCupRoutes.GREETING_ROUTE}")
+                    }
+
+                    composable(ChaiCupNavRoutes.FOOD_PAGE_ROUTE){
+                        GreetingWithNoArgument(name = "NONE")
                     }
                 }
 
@@ -99,14 +106,14 @@ class MainActivity : ComponentActivity() {
 fun Greeting(navController: NavController, name: String) {
     Column {
         Button(onClick = {
-            navController.navigateToGreeting02()
+            navController.navigateToGreeting02(arguments = arrayOf("Hello World", "Hello World x 2", "what"))
 
         }) {
 
             Text(text = "Navigate to Greeting 2")
         }
         VectorFinder()
-        Greeting02(name = name)
+        Greeting02(navController, name = name)
     }
 
 }
@@ -127,56 +134,29 @@ fun VectorFinder(){
 }
 
 
-@ChaiNavigation(routeName = "FoodPage?hello=hello")
-@OptIn(ExperimentalFoundationApi::class)
+@ChaiNavigation(routeName = "FoodPage?myArg={myArg}&arg0={arg0}&arg1={arg1}")
 @Composable
-fun Greeting02(name: String) {
-
-    val vScrollState = rememberScrollState(
-        initial = 20,
-    )
-
-    Log.d("Greeting02___", "$name")
-    val coroutine = rememberCoroutineScope()
+fun Greeting02(nav: NavController,name: String) {
 
     Button(onClick = {
-        coroutine.launch {
-            vScrollState.animateScrollTo(-10)
-        }
+        nav.navigateToGreetingWithNoArgument()
     }) {
 
         Text(text = "ARGUMENT: $name")
     }
-    val sState = rememberScrollableState(consumeScrollDelta = {
-        Log.d("NEW_ID", "$it")
-        0f
-    })
 
-    LaunchedEffect(key1 = vScrollState.isScrollInProgress,){
-        coroutine.launch {
-            delay(3000)
-            sState.scrollBy(600f)
-        }
-    }
 
-    val fling = rememberSnapFlingBehavior(rememberLazyListState())
-
-//        Box(modifier = Modifier.wrapContentHeight()) {
-//            LazyColumn(
-//                modifier = Modifier.wrapContentHeight(),
-//                // state = listState,
-//                // modifier = Modifier.nestedScroll(collapsing.nestedScrollConnection)
-//            ){
-//                for (i in 0..20){
-//                    item {
-//                        Text(
-//                            modifier = Modifier.height(60.dp),
-//                            text = name,
-//                            style = MaterialTheme.typography.bodyLarge,
-//                        )
-//                    }
-//                }
-//            }
-//        }
 }
 
+@ChaiNavigation(routeName = "FoodPage")
+@Composable
+fun GreetingWithNoArgument(name: String) {
+
+    Button(onClick = {
+    }) {
+
+        Text(text = "GreetingWithNoArgument: $name")
+    }
+
+
+}

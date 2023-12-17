@@ -38,6 +38,12 @@ class GenerateNavigateRoute(private val codeGenerator: CodeGenerator,
         symbols.forEach {ksFunc ->
             ksFunc.accept(visitor(navigatorFile), Unit)
         }
+
+        ChaiCupGenerator.generatePrivateFunc {
+            navigatorFile += it
+        }
+
+        navigatorFile += "\n\n}"
         navigatorFile.close()
         return symbols.filterNot{
             it.validate()
@@ -58,6 +64,8 @@ class GenerateNavigateRoute(private val codeGenerator: CodeGenerator,
         Imports.navigation { import ->
             navigatorFile += import
         }
+
+        navigatorFile += "\nobject ChaiCupNavRoutes{\n\n "
     }
 
 
@@ -73,7 +81,7 @@ class GenerateNavigateRoute(private val codeGenerator: CodeGenerator,
 
         // Generate the route
         val route = ChaiCupGenerator.computeRouteName(nameArg.value as String, simpleName)
-        navigatorFile += "\nobject ChaiCupNavRoutes{\n\n "
+
         val sanitisedRoute = if (route.contains("?")){
             route.split("?")[0]
         }else{
@@ -81,12 +89,10 @@ class GenerateNavigateRoute(private val codeGenerator: CodeGenerator,
         }
         // For chaicup routes
         ChaiCupGenerator.navigator(simpleName, sanitisedRoute){code ->
-            navigatorFile += "   const val $sanitisedRoute  = \"/$pkgName.${nameArg.value}\"\n" +
-                    "\n"
+            navigatorFile += "   const val $sanitisedRoute  = \"/$pkgName.${nameArg.value}\"\n"
             navigatorFile += code
         }
 
-        navigatorFile += "\n\n}"
 
     }
 

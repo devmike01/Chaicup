@@ -64,3 +64,5 @@ u
 Ecompiler/src/main/java/io/devmike01/compiler/GenerateNavigateRoute.kt,a/8/a8dc9d7096d36cd76c3e0203c740cb0a6fa7488a
 q
 Acompiler/src/main/java/io/devmike01/compiler/GenerateChaiRoute.kt,8/b/8be707383c2bb94020f8898e88e53db8c5e16214
+|
+Lcompiler/src/test/java/io/devmike01/compiler/android/ChaiCupGeneratorTest.kt,8/7/87f83749848e47d9de8ce6dfc510600b296e34e9
