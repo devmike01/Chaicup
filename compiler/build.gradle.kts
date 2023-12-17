@@ -39,6 +39,9 @@ java {
 
 
 dependencies {
-    implementation("com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8")
-
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.9.20-1.0.14")
+    testImplementation("junit:junit:4.12")
+    val nav_version = "2.7.5"
+//    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("io.insert-koin:koin-core:3.5.0")
 }
